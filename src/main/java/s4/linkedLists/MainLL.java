@@ -255,36 +255,96 @@ public class MainLL {
 //
 //        */
 
-        LinkedList myLinkedList = new LinkedList(1);
-        myLinkedList.append(2);
-        myLinkedList.append(3);
-        myLinkedList.append(4);
+//        LinkedList myLinkedList = new LinkedList(1);
+//        myLinkedList.append(2);
+//        myLinkedList.append(3);
+//        myLinkedList.append(4);
+//
+//        System.out.println("LL before reverse():");
+//        myLinkedList.printList();
+//
+//        myLinkedList.reverse();
+//
+//        System.out.println("\nLL after reverse():");
+//        myLinkedList.printList();
+//
+//
+//        /*
+//            EXPECTED OUTPUT:
+//            ----------------
+//            LL before reverse():
+//            1
+//            2
+//            3
+//            4
+//
+//            LL after reverse():
+//            4
+//            3
+//            2
+//            1
+//
+//        */
 
-        System.out.println("LL before reverse():");
-        myLinkedList.printList();
 
-        myLinkedList.reverse();
+        /**
+         * MIDDLE NODE
+         */
 
-        System.out.println("\nLL after reverse():");
-        myLinkedList.printList();
+//        LinkedList myLinkedList = new LinkedList(1);
+//        myLinkedList.append(2);
+//        myLinkedList.append(3);
+//        myLinkedList.append(4);
+//        myLinkedList.append(5);
+//
+//
+//        System.out.println("Middle Node:");
+//        System.out.println( myLinkedList.findMiddleNode().getValue());
+//
+//
+//        /*
+//            EXPECTED OUTPUT:
+//            ----------------
+//            Middle Node:
+//            3
+//
+//        */
 
+        int number = 10;
+        System.out.println("Divisors for the number " + number + " are: ");
+        LinkedList l = new LinkedList(3);
+        l.append(5);
+        l.append(8);
+        l.append(10);
+        l.append(2);
+        l.append(1);
+//        l.append(7);
+//        l.append(8);
+//        l.append(1);
+//        l.append(10);
+//        System.out.println();
+//        System.out.print("[");
+//        l.getDivisorList(number).forEach(integer -> System.out.print( " "+ integer));
+//        System.out.print("]");
+//        System.out.println();
+//        int k = 5;
+//        System.out.println("The value of the kth element with k: " + k + " is:" + l.findKthFromEnd(k).getValue());
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
+        System.out.println("The linked list before sorting is");
+        l.printList();
+        int n = 5;
+        System.out.println("The linked list after sorting with number " + n + " is:");
+        l.partitionList(n);
+        l.printList();
+//        l.removeDuplicates();
+//        System.out.println("The linked list after removing the duplicates is ");
+//        l.printList();
+//        l.reverseBetween(1, 3);
 
-        /*
-            EXPECTED OUTPUT:
-            ----------------
-            LL before reverse():
-            1
-            2
-            3
-            4
-
-            LL after reverse():
-            4
-            3
-            2
-            1
-
-        */
 
 
     }
