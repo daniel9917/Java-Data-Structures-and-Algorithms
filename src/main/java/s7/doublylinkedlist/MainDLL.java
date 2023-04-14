@@ -170,8 +170,5 @@ public class MainDLL {
         linkedList.swapPairs();
         linkedList.printList();
 
-
-
-
     }
 }
