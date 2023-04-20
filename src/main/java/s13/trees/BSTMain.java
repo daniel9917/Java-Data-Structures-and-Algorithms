@@ -14,11 +14,24 @@ public class BSTMain {
         myBST.insert(27);
 
         System.out.println(myBST.root.left.right.value);
-        int n = 28;
-        System.out.println("Does the tree contain " + n + "? : " +myBST.contains(n));
-        System.out.println("Does the tree contain " + n + "? : " +myBST.containsAlternative(n));
-        System.out.println("Does the tree contain " + (n + 1) + "? : " +myBST.contains(n + 1));
-        System.out.println("Does the tree contain " + (n + 1) + "? : " +myBST.containsAlternative(n + 1));
+        int n = 21;
+        System.out.println("Does the tree contain " + n + "? : " +myBST.rContains(n));
+        System.out.println("Does the tree contain " + n + "? : " +myBST.rContains(n));
+        System.out.println("Does the tree contain " + (n + 1) + "? : " +myBST.rContains(n + 1));
+        System.out.println("Does the tree contain " + (n + 1) + "? : " +myBST.rContains(n + 1));
+
+        BinarySearchTree myNewBST = new BinarySearchTree();
+
+        myNewBST.rInsert(2);
+        myNewBST.rInsert(1);
+        myNewBST.rInsert(3);
+
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Root: " + myNewBST.root.value);
+        System.out.println("Root.left: " + myNewBST.root.left.value);
+        System.out.println("Root.right: " + myNewBST.root.right.value);
 
     }
 }

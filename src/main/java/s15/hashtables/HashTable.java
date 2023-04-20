@@ -1,7 +1,7 @@
 package main.java.s15.hashtables;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class HashTable {
 
@@ -17,6 +17,90 @@ public class HashTable {
         }
         return false;
     }
+
+    public static List <Integer> findDuplicates (int [] array) {
+        HashMap <Integer, Boolean> numbers = new HashMap<>();
+        List <Integer> duplicates = new ArrayList<>();
+        for (int i = 0; i < array.length ; i++) {
+            if (numbers.containsKey(array[i]) && !duplicates.contains(array[i])) duplicates.add(array[i]);
+            numbers.put(array[i], true);
+        }
+        return duplicates;
+    }
+
+    public static Character firstNonRepeatingString (String s) {
+        List <String> characters = List.of(s.split(""));
+        HashMap<String, Integer> letters = new HashMap<>();
+        for (int i = 0; i < characters.size() ; i++) {
+            String ch =  characters.get(i);
+            Integer times = letters.get(ch);
+            if (times != null && times > 0) {
+                letters.put(ch, times + 1 );
+            } else {
+                letters.put(ch, 1 );
+            }
+        }
+
+        for (int i = 0; i < characters.size() ; i++) {
+            String ch =  characters.get(i);
+            int times = letters.get(ch);
+            if (times == 1) {
+                return ch.toCharArray()[0];
+            }
+        }
+        return null;
+    }
+
+    public static List<List<String>> groupAnagrams (String [] string) {
+
+        HashMap <Integer, List<String>> groupedAnagrams = new HashMap<>();
+        for (int i = 0; i < string.length; i++) {
+            String s = string[i];
+            char [] sChars = s.toCharArray();
+            int squaredSum = 0;
+            for (int j = 0; j < sChars.length; j++){
+                squaredSum += Math.pow(sChars[j], 2);
+            }
+            List <String> anagrams = groupedAnagrams.get(squaredSum);
+            if (anagrams == null) {
+                groupedAnagrams.put(squaredSum, new ArrayList<>(List.of(s)));
+            } else {
+                anagrams.add(s);
+                groupedAnagrams.put(squaredSum, anagrams);
+            }
+        }
+        return groupedAnagrams.values().stream().collect(Collectors.toList());
+    }
+
+
+
+    public static int [] twoSum (int [] values, int target) {
+        HashMap<Integer, List<Integer>> candidates = new HashMap<>();
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] <= target) {
+                List<Integer> e = candidates.get(values[i]);
+                if (e == null) {
+                    candidates.put(values[i], new ArrayList<>(List.of(i)));
+                } else {
+                    e.add(i);
+                    candidates.put(values[i], e);
+                }
+            }
+        }
+        for (Map.Entry<Integer, List<Integer>> entry : candidates.entrySet()) {
+            int remainder = target - entry.getKey();
+            if (candidates.containsKey(remainder)) {
+                List<Integer> indexes = candidates.get(remainder);
+                if (entry.getKey() == remainder && indexes.size() > 1) {
+                    return new int[]{entry.getValue().get(0), indexes.get(1)};
+                } else if (entry.getKey() != remainder) {
+                    return new int[]{entry.getValue().get(0), indexes.get(0)};
+                }
+            }
+        }
+        return new int[]{};
+    }
+
     private int size = 7;
     private Node [] dataMap;
 
